@@ -1,0 +1,107 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-outfit);
+  --font-mono: var(--font-space-mono);
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.07 0.01 240);
+  --foreground: oklch(0.95 0.01 240);
+  --card: oklch(0.1 0.01 240);
+  --card-foreground: oklch(0.95 0.01 240);
+  --popover: oklch(0.1 0.01 240);
+  --popover-foreground: oklch(0.95 0.01 240);
+  --primary: oklch(0.95 0 0);
+  --primary-foreground: oklch(0.1 0 0);
+  --secondary: oklch(0.13 0.01 240);
+  --secondary-foreground: oklch(0.7 0.01 240);
+  --muted: oklch(0.13 0.01 240);
+  --muted-foreground: oklch(0.5 0.01 240);
+  --accent: oklch(0.16 0.01 240);
+  --accent-foreground: oklch(0.85 0.01 240);
+  --destructive: oklch(0.63 0.22 25);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 10%);
+  --ring: oklch(1 0 0 / 30%);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.page-shell {
+  width: 100%;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .page-shell {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+.page-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 72rem;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: oklch(1 0 0 / 18%) oklch(0.07 0.03 20);
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: oklch(0.07 0.03 20);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: oklch(1 0 0 / 18%);
+  border-radius: 9999px;
+  border: 2px solid oklch(0.07 0.02 265);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: oklch(1 0 0 / 30%);
+}
